@@ -1,0 +1,14 @@
+{application, pid_manager,
+ [
+  {description, "An Erlang pid_manager library"},
+  {vsn, "1"},
+  {modules, [
+             pid_manager
+            ]},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {env, []}
+ ]}.
