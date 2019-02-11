@@ -44,9 +44,8 @@ handle_cast({register, Id, Pid}, State) ->
 handle_cast(_Msg, State) ->
     {noreply, State}.
 
-handle_info({'DOWN', MRef, process, Pid, _}, State) ->
+handle_info({'DOWN', MRef, process, _Pid, _}, State) ->
     MRefTable = State#state.mref_map,
-    error_logger:error_msg("process down pid:~p, mref:~p, state:~p", [Pid, MRef, State]),
     case MRefTable of
         #{ MRef := Id } ->
             {noreply, unregister_pid(Id, State)};
